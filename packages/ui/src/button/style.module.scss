@@ -1,0 +1,36 @@
+@use '../styles/mixin' as *;
+
+.base {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-white);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.primary {
+  background-color: var(--color-primary);
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: var(--color-primary-80);
+  }
+}
+
+//SIZE
+.sm {
+  padding-inline: 63px;
+  padding-block: 12px;
+  line-height: 24px;
+}
+
+.md {
+  min-width: 335px;
+  padding-block: 12px;
+  line-height: 36px;
+
+  @include tablet {
+    min-width: 100%;
+  }
+}
