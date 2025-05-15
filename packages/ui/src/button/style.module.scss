@@ -6,6 +6,10 @@
   color: var(--color-white);
   border-radius: 12px;
   cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
 .primary {
