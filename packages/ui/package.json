@@ -3,7 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./*": "./src/*.tsx"
+    ".": {
+      "import": "./src/index.ts"
+    },
+    "./button": {
+      "import": "./src/button/index.ts"
+    },
+    "./styles/global.scss": "./src/styles/global.scss"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
