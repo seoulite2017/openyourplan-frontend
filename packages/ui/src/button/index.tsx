@@ -9,11 +9,26 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   title: string; // or children
   size?: ButtonSize;
   variant?: ButtonVariant;
+  storyBookClassName?: string;
 };
 
-export const Button = ({ title, size = 'md', variant = 'primary', ...rest }: ButtonProps) => {
+export const Button = ({
+  title,
+  size = 'md',
+  variant = 'primary',
+  storyBookClassName,
+  ...rest
+}: ButtonProps) => {
   return (
-    <button className={ctx(styles.base, styles[variant], styles[size])} {...rest}>
+    <button
+      className={ctx(
+        styles.base,
+        styles[variant],
+        styles[size],
+        storyBookClassName && styles[storyBookClassName],
+      )}
+      {...rest}
+    >
       {title}
     </button>
   );
