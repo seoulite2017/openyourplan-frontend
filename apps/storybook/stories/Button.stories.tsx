@@ -32,6 +32,7 @@ export const Focus: Story = {
     title: 'Focus',
     size: 'md',
     storyBookClassName: 'focus',
+    disabled: true,
   },
   play: async ({ canvasElement }) => {
     const button = canvasElement.querySelector('button');
