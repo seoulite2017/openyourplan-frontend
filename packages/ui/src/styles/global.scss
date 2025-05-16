@@ -1,4 +1,5 @@
-@import './fonts.scss';
+@use './fonts';
+@use './mixin';
 
 :root {
   --color-primary: #111111;
@@ -19,6 +20,7 @@ body {
   font-family: 'Pretendard';
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  color: var(--color-primary);
 }
 
 img,

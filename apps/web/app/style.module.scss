@@ -1,0 +1,26 @@
+:root {
+  --header-height: 52px;
+}
+
+.main {
+  height: 100dvh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+
+    .text {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 600;
+    }
+  }
+}
