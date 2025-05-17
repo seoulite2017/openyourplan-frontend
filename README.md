@@ -1,84 +1,38 @@
-# Turborepo starter
+# OpenYourPlan Frontend
 
-This Turborepo starter is maintained by the Turborepo core team.
+이 프로젝트는 Turborepo와 pnpm으로 관리되는 Monorepo 구조입니다.
 
-## Using this example
+## 📦 Packages
 
-Run the following command:
+- **packages/ui**: Button 컴포넌트와 전역 스타일을 포함합니다.
+- **apps/storybook**: Button 컴포넌트에 대한 Storybook 설정이 있습니다.
+- **apps/web**: 메인 웹 애플리케이션 경로
+  - URL: https://openyourplan-frontend.vercel.app/
 
-```sh
-npx create-turbo@latest
-```
+## 🔄 데이터 페칭
 
-## What's inside?
+- **TanStack Query**와 **Axios**를 사용하여 서버로부터 데이터를 가져옵니다.
 
-This Turborepo includes the following packages/apps:
+## 🚀 네비게이션 흐름
 
-### Apps and Packages
+1. **다음 버튼** 클릭 시 데이터를 페칭하고, 결과를 **Zustand** 스토어에 저장합니다.
+2. 데이터 조회 이력이 **없는** 상태에서 `/result` 경로에 직접 접근하면, **1초** 후에 `/` 경로로 자동 리다이렉트됩니다.
+3. 데이터 조회 이력이 **있는** 상태에서 `/` 진입 시 `/result` 경로로 리다이렉트됩니다.
+4. 데이터 조회 이력은 zustand 스토어의 값으로 판단 합니다.
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+## ⏱️ 버튼 디바운스
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+- 다음 버튼에는 **5초 디바운스**가 적용되어 있습니다. (`setTimeout`을 사용하여 간단히 구현)
+- 디바운스 동안에는 버튼의 children으로 **로딩 컴포넌트**가 렌더링됩니다.
 
-### Utilities
+## 📝 결과 페이지
 
-This Turborepo has some additional tools already setup for you:
+- `/result` 경로의 콘텐츠는 **Zustand** 스토어에 저장된 값을 기반으로 구성됩니다.
+- 새로고침하거나 스토어 데이터가 준비되기 전에는 **Skeleton UI**가 표시됩니다.
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+## 🔧 코드 관리 & 린팅
 
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+- **Husky** 설정은 없지만, 수동으로 아래 스크립트를 실행하여 코드 린팅을 할 수 있습니다:
+  ```bash
+  pnpm run lint
+  ```
