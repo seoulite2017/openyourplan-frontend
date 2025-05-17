@@ -17,7 +17,8 @@
 
   &:hover,
   &:active,
-  &:focus {
+  &:focus,
+  &:disabled {
     background-color: var(--color-primary-80);
   }
 }

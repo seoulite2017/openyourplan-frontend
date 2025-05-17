@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import '@repo/ui/styles/global.scss';
 import Header from '../src/layout/header';
 import styles from './style.module.scss';
+import TanstackQueryClientProvider from '../src/provider/queryClientProvider';
 
 export const metadata: Metadata = {
   title: 'OpenyourPlan',
@@ -16,8 +17,10 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <Header />
-        <main className={styles.main}>{children}</main>
+        <TanstackQueryClientProvider>
+          <Header />
+          <main className={styles.main}>{children}</main>
+        </TanstackQueryClientProvider>
       </body>
     </html>
   );

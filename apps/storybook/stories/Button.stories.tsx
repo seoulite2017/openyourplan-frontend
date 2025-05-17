@@ -12,7 +12,7 @@ export default meta;
 
 export const Default: Story = {
   args: {
-    title: '버튼',
+    children: '버튼',
     size: 'md',
     variant: 'primary',
   },
@@ -20,7 +20,7 @@ export const Default: Story = {
 
 export const Hover: Story = {
   args: {
-    title: 'Hover',
+    children: 'Hover',
     size: 'sm',
     variant: 'primary',
     storyBookClassName: 'hover',
@@ -29,7 +29,7 @@ export const Hover: Story = {
 
 export const Focus: Story = {
   args: {
-    title: 'Focus',
+    children: 'Focus',
     size: 'md',
     storyBookClassName: 'focus',
     disabled: true,
