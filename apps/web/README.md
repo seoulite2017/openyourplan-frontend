@@ -5,7 +5,7 @@
 ## 📦 Packages
 
 - **packages/ui**: Button 컴포넌트와 전역 스타일을 포함합니다.
-- **apps/storybook**: Button 컴포넌트에 대한 Storybook 설정이 있습니다.
+- **apps/storybook**: Button 컴포넌트에 대한 Storybook 설정이 있습니다. (pnpm storybook scripts로 실행)
 - **apps/web**: 메인 웹 애플리케이션 경로
   - URL: https://openyourplan-frontend.vercel.app/
 
