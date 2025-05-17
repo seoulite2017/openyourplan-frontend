@@ -1,4 +1,4 @@
-@use '../../src/styles/mixin' as *;
+@use '@/styles/mixin' as *;
 
 .container {
   height: 100%;
@@ -24,7 +24,10 @@
       height: 440px;
       border-radius: 24px;
       position: relative;
-      background-color: royalblue;
+
+      > img {
+        border-radius: inherit;
+      }
 
       @include tablet {
         width: 100%;
