@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, ReactNode } from 'react';
 import ctx from 'classnames';
 import styles from './style.module.scss';
 
@@ -6,14 +6,14 @@ type ButtonVariant = 'primary';
 type ButtonSize = 'sm' | 'md';
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  title: string; // or children
+  children: ReactNode;
   size?: ButtonSize;
   variant?: ButtonVariant;
   storyBookClassName?: string;
 };
 
 export const Button = ({
-  title,
+  children,
   size = 'md',
   variant = 'primary',
   storyBookClassName,
@@ -29,7 +29,7 @@ export const Button = ({
       )}
       {...rest}
     >
-      {title}
+      {children}
     </button>
   );
 };
